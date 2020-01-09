@@ -1,0 +1,27 @@
+  <p>{{goal.description}}</p>
+<p>This goal will be complete in {{goal.completeDate|dateCount}} days</p>
+<button (click)= 'goalComplete(true)'>Complete</button>
+<button (click)= 'goalDelete(true)' class="btn btn-outline-danger">Delete Goal</button>
+<style>
+  fieldset {
+    text-align: center;
+    margin: 5%;
+  }
+  button{
+      background-color: rgb(79, 146, 235);
+      border-radius: 10%;
+      overflow: hidden;
+      width: 130px;
+      height: 35px;
+  }
+  .btn{background-color: crimson;}
+
+  ul>li {
+    list-style: none;
+    font-size: 18px;
+    font-family: serif;
+  }
+  p{font-family:'Lucida Grande';
+  font-weight: bolder;
+font-size: 20px;}
+</style>

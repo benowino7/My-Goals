@@ -1,0 +1,44 @@
+<style>
+  fieldset {
+    text-align: center;
+    margin: 5%;
+  }
+  button{
+      background-color: skyblue;
+      border-radius: 10%;
+      overflow: hidden;
+      width: 130px;
+      height: 35px;
+  }
+
+  ul>li {
+    list-style: none;
+    font-size: 18px;
+    font-family: serif;
+  }
+  p{font-family:'Lucida Grande';
+  font-weight: bolder;
+font-size: 20px;}
+</style>
+<fieldset>
+  <div class="container">
+    <h1>My Goals</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <ul *ngFor='let goal of goals;let i = index'>
+          <li appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</li>
+          <button (click)='toggleDescription(i)' class="btn btn-primary">Toggle Details</button>
+          <app-goal-detail *ngIf='goal.showDescription' [goal]='goal' (isComplete)='deleteGoal($event,i)'>
+          </app-goal-detail>
+        </ul>
+        <div class="col-md-6">
+            <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
+       </div>
+      </div>
+    </div>
+
+    <p *ngIf='goals.length > 5'>You have too many goals</p>
+  </div>
+
+</fieldset>
